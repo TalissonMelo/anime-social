@@ -26,6 +26,7 @@ public class UsuarioRepositorioTest {
 	public void deveValidarRegistroDeEmail() {
 		// Cénario
 		Usuario usuario = this.criarUsuario();
+		usuario.setNumero(this.usuarioRepositorio.numeroMaximo());
 		usuario = this.entityManager.persist(usuario);
 
 		// Ação ou execução
@@ -50,7 +51,6 @@ public class UsuarioRepositorioTest {
 		Usuario usuario = new Usuario();
 		usuario.setEmail("tay@");
 		usuario.setNome("Thalis");
-		usuario.setNumero(1);
 		usuario.setSenha("1234567");
 		return usuario;
 	}
