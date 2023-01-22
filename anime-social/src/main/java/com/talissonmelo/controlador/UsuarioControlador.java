@@ -14,6 +14,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.talissonmelo.entidades.Usuario;
 import com.talissonmelo.entidades.dto.UsuarioDto;
+import com.talissonmelo.entidades.dto.UsuarioResposta;
 import com.talissonmelo.servico.UsuarioServico;
 
 @RestController
@@ -24,9 +25,9 @@ public class UsuarioControlador {
 	private UsuarioServico servico;
 
 	@PostMapping
-	public ResponseEntity<Usuario> salvar(@Valid @RequestBody UsuarioDto dto) {
+	public ResponseEntity<UsuarioResposta> salvar(@Valid @RequestBody UsuarioDto dto) {
 		Usuario usuario = servico.salvar(dto);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(usuario.getId()).toUri();
-		return ResponseEntity.created(uri).body(usuario);
+		return ResponseEntity.created(uri).body(new UsuarioResposta(usuario));
 	}
 }
