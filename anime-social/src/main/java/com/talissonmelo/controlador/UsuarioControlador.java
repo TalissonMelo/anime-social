@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.talissonmelo.entidades.Usuario;
+import com.talissonmelo.entidades.conversao.UsuarioRespostaModel;
 import com.talissonmelo.entidades.dto.UsuarioDto;
 import com.talissonmelo.entidades.dto.UsuarioResposta;
 import com.talissonmelo.servico.UsuarioServico;
@@ -23,11 +24,14 @@ public class UsuarioControlador {
 
 	@Autowired
 	private UsuarioServico servico;
+	
+	@Autowired
+	private UsuarioRespostaModel model;
 
 	@PostMapping
 	public ResponseEntity<UsuarioResposta> salvar(@Valid @RequestBody UsuarioDto dto) {
 		Usuario usuario = servico.salvar(dto);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(usuario.getId()).toUri();
-		return ResponseEntity.created(uri).body(new UsuarioResposta(usuario));
+		return ResponseEntity.created(uri).body(this.model.paraUsuarioResposta(usuario));
 	}
 }

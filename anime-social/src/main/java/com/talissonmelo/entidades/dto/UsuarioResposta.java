@@ -1,19 +1,20 @@
 package com.talissonmelo.entidades.dto;
 
-import com.talissonmelo.entidades.Usuario;
-
 public class UsuarioResposta {
 
 	private Long id;
 	private String nome;
 	private String email;
 	private Integer numero;
-	
-	public UsuarioResposta(Usuario usuario) {
-		this.id = usuario.getId();
-		this.nome = usuario.getNome();
-		this.email = usuario.getEmail();
-		this.numero = usuario.getNumero();
+
+	public UsuarioResposta() {
+	}
+
+	public UsuarioResposta(Long id, String nome, String email, Integer numero) {
+		this.id = id;
+		this.nome = nome;
+		this.email = email;
+		this.numero = numero;
 	}
 
 	public Long getId() {
