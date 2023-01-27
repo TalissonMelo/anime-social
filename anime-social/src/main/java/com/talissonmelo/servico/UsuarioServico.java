@@ -39,7 +39,7 @@ public class UsuarioServico {
 		return this.repositorio.findAll();
 	}
 
-	private void validarEmail(String email) {
+	public void validarEmail(String email) {
 		boolean existe = this.repositorio.existsByEmail(email);
 		if (existe) {
 			throw new RegraDeNegocioException("Já existe um usuário cadastrado com este email!.");
