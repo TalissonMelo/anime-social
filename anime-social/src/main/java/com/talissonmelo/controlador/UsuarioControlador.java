@@ -44,6 +44,12 @@ public class UsuarioControlador {
 		return ResponseEntity.ok().body(usuarioResposta);
 	}
 	
+	@GetMapping
+	public ResponseEntity<List<UsuarioResposta>> listarUsuarios() {
+		List<UsuarioResposta> usuarioRespostas = this.model.paraUsuarioRespostas(servico.listar());
+		return ResponseEntity.ok().body(usuarioRespostas);
+	}
+	
 	public ResponseEntity<List<UsuarioResposta>> listar() {
 		List<UsuarioResposta> usuarioRespostas = this.model.paraUsuarioRespostas(this.servico.listar());
 		return ResponseEntity.ok().body(usuarioRespostas);

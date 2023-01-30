@@ -37,7 +37,7 @@
 					"response": []
 				},
 				{
-					"name": "listar",
+					"name": "listar por id",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -51,6 +51,25 @@
 							"path": [
 								"usuarios",
 								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/usuarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuarios"
 							]
 						}
 					},
