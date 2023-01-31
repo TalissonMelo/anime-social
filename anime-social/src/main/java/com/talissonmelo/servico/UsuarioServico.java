@@ -1,10 +1,13 @@
 package com.talissonmelo.servico;
 
-import java.util.List;
-
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
+import org.springframework.data.domain.ExampleMatcher.StringMatcher;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.talissonmelo.entidades.Usuario;
@@ -32,17 +35,20 @@ public class UsuarioServico {
 	}
 
 	public Usuario listarPorId(Long id) {
-		return this.repositorio.findById(id).orElseThrow(() -> new EntidadeNaoEncontrada(Usuario.class.getSimpleName().toString(), id));
+		return this.repositorio.findById(id)
+				.orElseThrow(() -> new EntidadeNaoEncontrada(Usuario.class.getSimpleName().toString(), id));
 	}
 	
-	public List<Usuario> listar(){
-		return this.repositorio.findAll();
-	}
-
 	public void validarEmail(String email) {
 		boolean existe = this.repositorio.existsByEmail(email);
 		if (existe) {
 			throw new RegraDeNegocioException("Já existe um usuário cadastrado com este email!.");
 		}
+	}
+
+	public Page<Usuario> listar(Pageable pageable, String nome, Integer numero, String email) {
+		Usuario usuario = new Usuario(null, nome, email, email, numero);
+		Example<Usuario> example = Example.of(usuario, ExampleMatcher.matching().withIgnoreCase().withStringMatcher(StringMatcher.CONTAINING));
+		return this.repositorio.findAll(example, pageable);
 	}
 }
