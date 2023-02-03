@@ -59,6 +59,16 @@
 				{
 					"name": "listar",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "XbdZzP0LCV_7WzfNIYFTFZDFA2Z0dzAkw2yjSH2uPpXLM5lGBwZKCSZNPv4y2sHscXuOfxJfK4hl5e-5OECIkgMkl4D7SVGbR72-Z1ZHsFlm_OwCsaS68B-tr3h7t-ff",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -155,7 +165,7 @@
 							"formdata": [
 								{
 									"key": "token",
-									"value": "EN5rUYZJfRttkzYLUhWOiJOBSP3hxgrNYuZPydsuX-lEeteNVQbIZ81Qoj6cwEaHMpLBFbGCFC9ff4b1xBCP272TMD9rylJwje5D2ETg_5yyQDjQDvzqpnAF7rz_0i-w",
+									"value": "XbdZzP0LCV_7WzfNIYFTFZDFA2Z0dzAkw2yjSH2uPpXLM5lGBwZKCSZNPv4y2sHscXuOfxJfK4hl5e-5OECIkgMkl4D7SVGbR72-Z1ZHsFlm_OwCsaS68B-tr3h7t-ff",
 									"type": "text"
 								}
 							]
