@@ -28,7 +28,7 @@ import com.talissonmelo.servico.UsuarioServico;
 
 @RestController
 @RequestMapping(value = "/usuarios")
-public class UsuarioControlador {
+public class UsuarioControlador implements UsuarioControladorDocumentacao {
 
 	@Autowired
 	private UsuarioServico servico;
