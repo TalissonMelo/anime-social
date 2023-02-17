@@ -1,9 +1,9 @@
 package com.talissonmelo.entidades.dto;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-
 import org.hibernate.validator.constraints.Length;
+
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 
 public class UsuarioDto {
 

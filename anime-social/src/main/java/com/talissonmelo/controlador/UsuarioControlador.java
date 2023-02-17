@@ -3,8 +3,6 @@ package com.talissonmelo.controlador;
 import java.net.URI;
 import java.util.List;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -25,6 +23,8 @@ import com.talissonmelo.entidades.conversao.UsuarioRespostaModel;
 import com.talissonmelo.entidades.dto.UsuarioDto;
 import com.talissonmelo.entidades.dto.UsuarioResposta;
 import com.talissonmelo.servico.UsuarioServico;
+
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping(value = "/usuarios")

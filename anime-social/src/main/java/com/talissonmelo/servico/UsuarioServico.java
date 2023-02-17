@@ -1,6 +1,5 @@
 package com.talissonmelo.servico;
 
-import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
@@ -16,6 +15,8 @@ import com.talissonmelo.entidades.dto.UsuarioDto;
 import com.talissonmelo.entidades.exception.EntidadeNaoEncontrada;
 import com.talissonmelo.entidades.exception.RegraDeNegocioException;
 import com.talissonmelo.repositorio.UsuarioRepositorio;
+
+import jakarta.transaction.Transactional;
 
 @Service
 public class UsuarioServico {

@@ -4,10 +4,9 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -20,11 +19,14 @@ import com.talissonmelo.entidades.exception.EntidadeNaoEncontrada;
 import com.talissonmelo.entidades.exception.Erro;
 import com.talissonmelo.entidades.exception.RegraDeNegocioException;
 
+import jakarta.servlet.http.HttpServletRequest;
+
 @ControllerAdvice
 public class ApiExceptionHanlder extends ResponseEntityExceptionHandler {
 
+	
 	@Override
-	protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException e, HttpHeaders headers, HttpStatus status, WebRequest request) {
+	protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException e,HttpHeaders headers, HttpStatusCode status, WebRequest request) {
 		String detalhe = "Um ou mais campos estão inválidos. Faça o preenchimento correto e tente novamente.";
 		List<String> mensagens = new ArrayList<String>();
 		for (ObjectError error : e.getBindingResult().getAllErrors()) {
