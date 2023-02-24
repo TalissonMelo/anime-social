@@ -1,4 +1,4 @@
-package com.talissonmelo.configuracao;
+package com.talissonmelo.seguranca;
 
 import java.time.Duration;
 import java.util.Arrays;

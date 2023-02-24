@@ -1,4 +1,4 @@
-package com.talissonmelo.configuracao;
+package com.talissonmelo.seguranca;
 
 import java.util.Collection;
 import java.util.Collections;
