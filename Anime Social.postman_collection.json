@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "331a0407-eebc-4906-b1c5-626ee524439b",
+		"_postman_id": "31846eea-d77b-4586-9d02-ac3b84d49643",
 		"name": "Anime Social",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -180,6 +180,51 @@
 							"path": [
 								"oauth2",
 								"introspect"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OAuth2 Revoke",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "anime_social",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "anime_social_backend",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "token",
+									"value": "8O8WoZDbNuaGuEkzVJQefKTnJ5JOS-mR7hjSjLMlwJYmqyBAbWXVULeicMufo2LUVrfxXt9YOZjttAHhRuugf1xaCs1P6ElJJoiy7dmjDqwELoOmEDuMuFRvXci4Cq12",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/oauth2/revoke",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"oauth2",
+								"revoke"
 							]
 						}
 					},
