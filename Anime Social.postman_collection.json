@@ -276,6 +276,26 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Actuator metrics",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/actuator/metrics",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"actuator",
+								"metrics"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}
