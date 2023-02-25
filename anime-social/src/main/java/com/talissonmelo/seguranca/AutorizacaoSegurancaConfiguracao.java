@@ -57,7 +57,8 @@ public class AutorizacaoSegurancaConfiguracao {
     }
     
     @Bean
-    OAuth2AuthorizationService oAuth2AuthorizationService(JdbcOperations jdbcOperations, RegisteredClientRepository registeredClientRepository) {
-        return new JdbcOAuth2AuthorizationService(jdbcOperations,registeredClientRepository);
+    OAuth2AuthorizationService oAuth2AuthorizationService(JdbcOperations jdbcOperations, 
+    		RegisteredClientRepository registeredClientRepository) {
+        return new JdbcOAuth2AuthorizationService(jdbcOperations, registeredClientRepository);
     }
 }
