@@ -4,6 +4,8 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -24,7 +26,8 @@ import jakarta.servlet.http.HttpServletRequest;
 @ControllerAdvice
 public class ApiExceptionHanlder extends ResponseEntityExceptionHandler {
 
-	
+	private static final Logger log = LoggerFactory.getLogger(ApiExceptionHanlder.class);
+
 	@Override
 	protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException e,HttpHeaders headers, HttpStatusCode status, WebRequest request) {
 		String detalhe = "Um ou mais campos estão inválidos. Faça o preenchimento correto e tente novamente.";
@@ -38,6 +41,7 @@ public class ApiExceptionHanlder extends ResponseEntityExceptionHandler {
 		erros.setTimestamp(OffsetDateTime.now());
 		erros.setDescricao(detalhe);
 		erros.setMensagens(mensagens);
+		log.error("Um ou mais campos estão inválidos.");
 		return handleExceptionInternal(e, erros, headers, status, request);
 	}
 	
@@ -46,6 +50,7 @@ public class ApiExceptionHanlder extends ResponseEntityExceptionHandler {
 		Erro erro = new Erro();
 		erro.setStatus(HttpStatus.NOT_FOUND.value());
 		erro.setDescricao(e.getMessage());
+		log.error("Entidade não encontrada");
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(erro);
 
 	}
@@ -55,6 +60,7 @@ public class ApiExceptionHanlder extends ResponseEntityExceptionHandler {
 		Erro erro = new Erro();
 		erro.setStatus(HttpStatus.BAD_REQUEST.value());
 		erro.setDescricao(e.getMessage());
+		log.error("Validação de regra de negocio.");
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(erro);
 
 	}

@@ -53,4 +53,11 @@ public class UsuarioDto {
 		this.senha = senha;
 	}
 
+	@Override
+	public String toString() {
+		return "UsuarioDto{" +
+				"nome='" + nome + '\'' +
+				", email='" + email + '\'' +
+				'}';
+	}
 }
